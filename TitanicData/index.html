@@ -1,63 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
 <head>
-     <meta charset="utf-8">
-     <!-- Load d3.js -->
-     <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
-     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css" />
-     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+     <!-- Load d3 -->
+     <script src="https://d3js.org/d3.v4.js"></script>
+     <style>
+          .axis {
+               opacity: 0.5;
+          }
+          .axis:hover {
+               opacity: 0.95;
+          }
+          #div1 {
 
-     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+          }
+          .line {
+               opacity: 0.5;
+          }
+          .line:hover{
+               opacity: .95;
+          }
+     </style>
 
-     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-     <!-- Color palette -->
-     <!-- <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
 </head>
 <body>
-     <script type="text/javascript">
-     function Upload() {
-          var fileUpload = document.getElementById("fileUpload");
-          var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-          if (regex.test(fileUpload.value.toLowerCase())) {
-               console.log("check 2");
-               if (typeof (FileReader) != "undefined") {
-                    console.log("check 3");
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                         var table = document.createElement("table");
-                         var rows = e.target.result.split("\n");
-                         for (var i = 0; i < rows.length; i++) {
-                              var cells = rows[i].split(",");
-                              if (cells.length > 1) {
-                                   console.log("check 4");
-                                   var row = table.insertRow(-1);
-                                   for (var j = 0; j < cells.length; j++) {
-                                        var cell = row.insertCell(-1);
-                                        cell.innerHTML = cells[j];
-                                   }
-                              }
-                         }
-                         var dvCSV = document.getElementById("dvCSV");
-                         dvCSV.innerHTML = "";
-                         dvCSV.appendChild(table);
-                    }
-                    reader.readAsText(fileUpload.files[0]);
-               } else {
-                    alert("This browser does not support HTML5.");
-               }
-          } else {
-               alert("Please upload a valid CSV file.");
-          }
-     }
-</script>
-<input type="file" id="fileUpload" />
-<input type="button" id="upload" value="Upload" onclick="Upload()" />
-<hr />
-<div id="dvCSV">
-</div>
-
-</body>
+     <!-- Create a div for the graph -->
+     <div id="div1"></div>
+     <script type="text/javascript" src="./script.js"></script>
+     </body>
 </html>
