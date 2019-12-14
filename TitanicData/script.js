@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
 width = 550 - margin.left - margin.right,
-height = 550 - margin.top - margin.bottom;
+height = 400 - margin.top - margin.bottom;
 // append the svg object to the body of the page
 var svg = d3.select("#div1")
 .append("svg")
@@ -10,22 +10,7 @@ var svg = d3.select("#div1")
 .append("g");
 var dimensionCopy = ["Class", "Age", "Gender (M:1, F:2)", "Sibling/Spouse", "Parent/Child", "Fare (log scale)"];
 
-//Grab the checkbox form and set the dimensionCopy = to the selected values
-// function getCheckboxValues(form){
-//      var values = [];
-//      console.log(form);
-//      var vehicles = form.vehicle;
-//      alert(form);
-//      for(var i=0, iLen = 5; i<iLen; i++){
-//           if(vehicles[i].checked){
-//                values.push(vehicles[i].value);
-//           }
-//      }
-//      // Do something with values
-//      alert("Vehicles: " + values.join(', '));
-//      dimensionsCopy = values;
-//
-// }
+
 var form = document.getElementById('dimension-form');
 form.onsubmit = function(e){
      e.preventDefault();
@@ -135,6 +120,7 @@ function drawCSV(){
           .style("opacity", 0.5)
           .on("mouseover", highlight)
           .on("mouseleave", doNotHighlight )
+          translate(10, 10);
           // Draw the axis:
           svg.selectAll("myAxis")
           // For each dimension of the dataset I add a 'g' element:
@@ -148,7 +134,7 @@ function drawCSV(){
           // Add axis title
           .append("text")
           .style("text-anchor", "middle")
-          .attr("y", -9)
+          .attr("y", 9)
           .text(function(d) { return d; })
           .style("fill", "black")
      })
@@ -244,6 +230,7 @@ d3.csv("clean_titanic_data.csv", function(data) {
      .style("opacity", 0.5)
      .on("mouseover", highlight)
      .on("mouseleave", doNotHighlight )
+     translate(10, 10);
      // Draw the axis:
      svg.selectAll("myAxis")
      // For each dimension of the dataset I add a 'g' element:
@@ -257,7 +244,7 @@ d3.csv("clean_titanic_data.csv", function(data) {
      // Add axis title
      .append("text")
      .style("text-anchor", "middle")
-     .attr("y", -9)
+     .attr("y", 9)
      .text(function(d) { return d; })
      .style("fill", "black")
 })
