@@ -16,6 +16,8 @@ https://getbootstrap.com/docs/4.4/getting-started/introduction/
 <p>After downloading the folder navigate your way into the TitanicData folder</p>
 <p>
      $cd TitanicData
+</p>
+<p>
      $python3 -m http.server
 </p>
 <p>Now open your browser and go to your local host server, and interact with the data! <br>
