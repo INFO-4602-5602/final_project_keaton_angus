@@ -120,7 +120,7 @@ function drawCSV(){
           .style("opacity", 0.5)
           .on("mouseover", highlight)
           .on("mouseleave", doNotHighlight )
-          translate(10, 10);
+          
           // Draw the axis:
           svg.selectAll("myAxis")
           // For each dimension of the dataset I add a 'g' element:
@@ -229,8 +229,7 @@ d3.csv("clean_titanic_data.csv", function(data) {
      .style("stroke", function(d){ return( color(d.Survived))} )
      .style("opacity", 0.5)
      .on("mouseover", highlight)
-     .on("mouseleave", doNotHighlight )
-     translate(10, 10);
+     .on("mouseleave", doNotHighlight)
      // Draw the axis:
      svg.selectAll("myAxis")
      // For each dimension of the dataset I add a 'g' element:
